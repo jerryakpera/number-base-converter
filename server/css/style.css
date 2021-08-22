@@ -1,0 +1,14 @@
+body {
+  background-color: #e1e2ef;
+}
+
+.convert-row {
+  padding: 10px;
+  background-color: #12130f;
+  color: #fff;
+}
+
+.convert-row input,
+.convert-row select {
+  color: #222222;
+}
