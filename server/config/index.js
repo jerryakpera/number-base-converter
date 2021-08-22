@@ -1,4 +1,5 @@
 module.exports = {
   port: 3030,
-  baseURL: '/api/v1/nbc',
+  apiURL: '/api/v1/nbc',
+  appURL: '/nbc',
 };

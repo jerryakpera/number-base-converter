@@ -6,11 +6,11 @@ const request = require('request');
 
 const _config = require('../config');
 
-const apiBaseURL = `http://localhost:3030${_config.baseURL}`;
+const apiURL = `http://localhost:3030${_config.apiURL}`;
 
 describe('Test route', () => {
   it('should return 200 status code', (done) => {
-    request(`${apiBaseURL}/test`, (error, response, body) => {
+    request(`${apiURL}/test`, (error, response, body) => {
       expect(response.statusCode).to.equal(200);
 
       done();
@@ -18,7 +18,7 @@ describe('Test route', () => {
   });
 
   it('should return Up and running!', (done) => {
-    request(`${apiBaseURL}/test`, (error, response, body) => {
+    request(`${apiURL}/test`, (error, response, body) => {
       expect(body).to.equal('Up and running!');
 
       done();
@@ -31,7 +31,7 @@ describe('Test route', () => {
 });
 
 describe('/decimal', () => {
-  const decimalURL = `${apiBaseURL}/decimal`;
+  const decimalURL = `${apiURL}/decimal`;
 
   it('/octal, /binary and /hex routes should not return 404 code', (done) => {
     request(`${decimalURL}/binary/45`, (error, response, body) => {
