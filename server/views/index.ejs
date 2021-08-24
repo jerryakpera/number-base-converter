@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<%- include('./partials/header-form.ejs') %>
+<!--  -->
+<% if(messages.logged){ %>
+<!--  -->
+<%= messages.logged %>
+<!--  -->
+<% } %>
+<!--  -->
 
-    <link rel="stylesheet" href="css/main.css" />
-
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-
-    <title><%= title %></title>
-  </head>
-  <body>
-    <h1><%= text %></h1>
-  </body>
-</html>
+<h1>Converting statement partial</h1>
+<h2>Steps answer</h2>

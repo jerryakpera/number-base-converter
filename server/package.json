@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --reporter spec ./test",
     "lint": "eslint --fix --ext .js .",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "scss": "node-sass ./scss/ -wo ./public/css"
   },
   "author": "",
   "license": "ISC",
@@ -20,8 +21,10 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
     "helmet": "^4.6.0",
     "lodash": "^4.17.21",
+    "node-sass": "^6.0.1",
     "request": "^2.88.2",
     "response-time": "^2.3.2"
   }
