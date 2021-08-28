@@ -42,7 +42,12 @@ app.use((req, res, next) => {
     'X-Content-Security-Policy': 'default-src *',
     'X-WebKit-CSP': 'default-src *',
   });
-  next();
+
+  // res.setHeader(
+  //   'Content-Security-Policy',
+  //   "script-src 'self' https://cdnjs.cloudflare.com"
+  // );
+  return next();
 });
 
 app.get('/', (req, res) => {
