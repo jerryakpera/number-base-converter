@@ -1,6 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+
 @import '_variables.scss';
 @import 'components/_form.scss';
-
-body {
-  background-color: $bgColor;
-}
+@import 'components/_tooltip.scss';

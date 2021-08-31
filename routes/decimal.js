@@ -6,7 +6,7 @@ const {
   decimalToHex,
 } = require('../controllers/decimal-controller');
 
-router.get('/binary/:number', decimalToBinary);
+router.get('/to-binary/:number', decimalToBinary);
 router.get('/octal/:number', decimalToOctal);
 router.get('/hex/:number', decimalToHex);
 

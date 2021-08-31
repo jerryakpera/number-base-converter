@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const convertFrom = convertFromInput.value;
     const convertTo = convertToInput.value;
 
-    console.log(numberToConvert, convertFrom, convertTo);
     // Make request
+    makeRequest(convertFrom, convertTo, numberToConvert);
   });
 });
 

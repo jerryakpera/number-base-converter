@@ -33,20 +33,20 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 app.use((req, res, next) => {
-  res.set({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers':
-      'Origin, X-Requested-With, Content-Type, Accept',
-    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-    'Content-Security-Policy': 'default-src *',
-    'X-Content-Security-Policy': 'default-src *',
-    'X-WebKit-CSP': 'default-src *',
-  });
+  // res.set({
+  //   'Access-Control-Allow-Origin': '*',
+  //   'Access-Control-Allow-Headers':
+  //     'Origin, X-Requested-With, Content-Type, Accept',
+  //   'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+  //   'Content-Security-Policy': 'default-src *',
+  //   'X-Content-Security-Policy': 'default-src *',
+  //   'X-WebKit-CSP': 'default-src *',
+  // });
 
-  // res.setHeader(
-  //   'Content-Security-Policy',
-  //   "script-src 'self' https://cdnjs.cloudflare.com"
-  // );
+  res.setHeader(
+    'Content-Security-Policy',
+    "script-src 'self' https://cdnjs.cloudflare.com"
+  );
   return next();
 });
 

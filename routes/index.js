@@ -4,6 +4,6 @@ router.get('/test', (req, res) => {
   return res.send('Up and running!');
 });
 
-router.use('/decimal', require('./decimal'));
+router.use('/convert/decimal', require('./decimal'));
 
 module.exports = router;
