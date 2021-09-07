@@ -1,13 +1,23 @@
-<%- include('./partials/header-form.ejs') %>
-<!--  -->
-<% if(messages.logged){ %>
-<!--  -->
-<%= messages.logged %>
-<!--  -->
-<% } %>
-<!--  -->
+<div>
+  <%- include('./partials/header-form.ejs') %>
+  <!--  -->
+  <% if(messages.logged){ %>
+  <!--  -->
+  <%= messages.logged %>
+  <!--  -->
+  <% } %>
+  <!--  -->
+</div>
 
-<!--  -->
-<%- include('./partials/converting.ejs') %>
-<!--  -->
-<!-- <h2>Steps answer</h2> -->
+<div>
+  <!--  -->
+  <%- include('./partials/converting.ejs') %>
+  <!--  -->
+</div>
+
+<div>
+  <!--  -->
+  <%- include('./partials/steps.ejs') %>
+  <!--  -->
+  <!-- <h2>Steps answer</h2> -->
+</div>

@@ -3,3 +3,47 @@
 @import '_variables.scss';
 @import 'components/_form.scss';
 @import 'components/_tooltip.scss';
+@import 'components/_steps.scss';
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    flex-grow: 1;
+  }
+}
+
+#converting,
+#answer,
+#notes {
+  margin: 2em 0.8em;
+  padding: 1em 1.5em;
+  font-family: $font1;
+  border-radius: 5px;
+}
+
+#converting {
+  color: $lightBlue;
+  border: 1px solid $lightBlue;
+}
+
+#answer {
+  padding: 0.5em 0.7em !important;
+  margin-top: -1em !important;
+  background-color: $green;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px solid $green;
+  letter-spacing: 1px;
+}
+
+#notes {
+  margin-top: -1em !important;
+  font-family: $font1;
+  font-size: 0.85em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black;
+}

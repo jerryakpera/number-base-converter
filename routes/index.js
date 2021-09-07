@@ -5,5 +5,6 @@ router.get('/test', (req, res) => {
 });
 
 router.use('/convert/decimal', require('./decimal'));
+router.use('/convert/binary', require('./binary'));
 
 module.exports = router;

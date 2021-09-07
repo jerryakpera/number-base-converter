@@ -41,7 +41,7 @@ function decimalToQuotientAndRemainders(num, no) {
     remainders.push(remainder !== 0 ? wRemainder : 0);
 
     rows.push(
-      `${temp} ÷ ${no} = ${wQuotient} r ${remainder !== 0 ? wRemainder : 0}`,
+      `${temp} ÷ ${no} = ${wQuotient} r ${remainder !== 0 ? wRemainder : 0}`
     );
     temp = Math.floor(temp / no);
   }
@@ -71,9 +71,71 @@ function convertNumbersToHexString(hexStr) {
     .join(' ');
 }
 
+function getPowers(num, power = 2) {
+  if (typeof num !== 'string') return false;
+  let rows = num.split('').reverse();
+
+  return rows
+    .map((row, i) => {
+      return `${row} : ${power ** i}`;
+    })
+    .reverse();
+}
+
+function multiplyNoAndPower(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  return arr.map((line) => {
+    let [no, power] = line.split(' : ');
+
+    no = +no;
+    power = +power;
+
+    return `${no} x ${power} = ${no * power}`;
+  });
+}
+
+function addMultiples(arr) {
+  if (!Array.isArray(arr)) return false;
+
+  let additionLine = '';
+
+  let total = arr
+    .map((line, i) => {
+      let [calc, ans] = line.split(' = ');
+      ans = +ans;
+
+      if (i < arr.length - 1) additionLine += `${ans} + `;
+      else additionLine += `${ans} =`;
+
+      return ans;
+    })
+    .reduce((num, total) => num + total, 0);
+
+  return {
+    finalAnswer: total,
+    addition: `${additionLine} ${total}`,
+  };
+}
+
+const multiples = [
+  '1 x 64 = 64',
+  '1 x 32 = 32',
+  '0 x 16 = 0',
+  '1 x 8 = 8',
+  '1 x 4 = 4',
+  '0 x 2 = 0',
+  '1 x 1 = 1',
+];
+
+// console.log(addMultiples(multiples));
+
 module.exports = {
   isValidStr,
   getConversion,
   decimalToQuotientAndRemainders,
   convertNumbersToHexString,
+  getPowers,
+  multiplyNoAndPower,
+  addMultiples,
 };

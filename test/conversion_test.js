@@ -167,3 +167,84 @@ describe('decimal', () => {
     });
   });
 });
+
+describe('binary', () => {
+  const { convertBinaryNumber } = require('../libs/conversion');
+
+  describe('toDecimal', () => {
+    it('should be a module', () => {
+      expect(convertBinaryNumber.toDecimal).to.be.ok;
+    });
+
+    it('should return false if argument is not a valid binary no as a string', () => {
+      expect(convertBinaryNumber.toDecimal(223)).to.be.false;
+      expect(convertBinaryNumber.toDecimal('cc223')).to.be.false;
+      expect(convertBinaryNumber.toDecimal('22873')).to.be.false;
+      expect(convertBinaryNumber.toDecimal('00100')).to.be.ok;
+    });
+
+    it('should return a conversion object with valid properties', () => {
+      const properties = [
+        'conversionType',
+        'notes',
+        'converting',
+        'steps',
+        'finalAnswer',
+      ];
+
+      expect(convertBinaryNumber.toDecimal('0010')).to.have.all.keys(
+        properties
+      );
+    });
+
+    it('should return a valid conversion object with step rows', () => {
+      expect(convertBinaryNumber.toDecimal('1101101')).to.deep.include({
+        finalAnswer: 109,
+      });
+
+      expect(convertBinaryNumber.toDecimal('1101101').steps[0]).to.deep.include(
+        {
+          rows: '1101101'.split(''),
+        }
+      );
+
+      expect(convertBinaryNumber.toDecimal('1101101').steps[1]).to.deep.include(
+        {
+          rows: [
+            '1 : 64',
+            '1 : 32',
+            '0 : 16',
+            '1 : 8',
+            '1 : 4',
+            '0 : 2',
+            '1 : 1',
+          ],
+        }
+      );
+
+      expect(convertBinaryNumber.toDecimal('1101101').steps[2]).to.deep.include(
+        {
+          rows: [
+            '1 x 64 = 64',
+            '1 x 32 = 32',
+            '0 x 16 = 0',
+            '1 x 8 = 8',
+            '1 x 4 = 4',
+            '0 x 2 = 0',
+            '1 x 1 = 1',
+          ],
+        }
+      );
+
+      expect(convertBinaryNumber.toDecimal('1101101').steps[3]).to.deep.include(
+        {
+          rows: '64 + 32 + 0 + 8 + 4 + 0 + 1 = 109',
+        }
+      );
+    });
+
+    after(() => {
+      console.log('convertBinary toDecimal tests completed');
+    });
+  });
+});

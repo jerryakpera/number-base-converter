@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap");
-.header {
-  color: red;
-  background-color: white; }
-
-#converting {
-  margin: 2em 0.8em;
-  padding: 1em 1.5em;
-  font-family: "Montserrat", sans-serif;
-  color: #3f88c5;
-  border: 1px solid #3f88c5;
-  border-radius: 5px; }
+#header {
+  display: flex;
+  width: 100vw;
+  justify-content: center; }
+  #header #header-form {
+    display: flex; }
+    #header #header-form div {
+      flex-grow: 1;
+      margin: 0 1em;
+      width: 100%; }
 
 /*== start of code for tooltips ==*/
 .tool {
@@ -74,3 +73,84 @@
     font-size: 0.75em;
     margin-left: -5em;
     width: 10em; } }
+
+#steps {
+  margin: 0.8em;
+  font-family: "Montserrat", sans-serif; }
+  #steps .step {
+    border-radius: 5px;
+    border: 1px solid #3f88c5;
+    margin-bottom: 0.8em; }
+    #steps .step .step-title {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: #3f88c5;
+      display: flex;
+      justify-content: space-between;
+      padding: 1em; }
+      #steps .step .step-title h5 {
+        color: white;
+        font-weight: bold; }
+    #steps .step .step-body {
+      padding: 1em; }
+      #steps .step .step-body .tool {
+        color: red !important; }
+      #steps .step .step-body .notes {
+        color: #13c4a3;
+        font-weight: bold; }
+      #steps .step .step-body .rows {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1em; }
+        #steps .step .step-body .rows .example {
+          color: #d00000;
+          font-weight: bold; }
+        #steps .step .step-body .rows .row {
+          margin: 1em 0;
+          flex-grow: 1;
+          font-weight: bold;
+          color: #3f88c5;
+          font-size: 1em;
+          border-bottom: 1px solid #ccc; }
+      #steps .step .step-body .summary {
+        text-align: center;
+        font-weight: bold; }
+
+body {
+  display: flex;
+  flex-wrap: wrap; }
+  body div {
+    flex-grow: 1; }
+
+#converting,
+#answer,
+#notes {
+  margin: 2em 0.8em;
+  padding: 1em 1.5em;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px; }
+
+#converting {
+  color: #3f88c5;
+  border: 1px solid #3f88c5; }
+
+#answer {
+  padding: 0.5em 0.7em !important;
+  margin-top: -1em !important;
+  background-color: #13c4a3;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px solid #13c4a3;
+  letter-spacing: 1px; }
+
+#notes {
+  margin-top: -1em !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black; }

@@ -114,11 +114,136 @@ describe('convertNumbersToHexString', () => {
   it('should change any number higher than 9 to its hex equivelent', () => {
     expect(convertNumbersToHexString('13 3')).to.equal('D 3');
     expect(convertNumbersToHexString('13 1 4 11 1 10 2')).to.equal(
-      'D 1 4 B 1 A 2',
+      'D 1 4 B 1 A 2'
     );
   });
 
   after(() => {
     console.log('convertNumbersToHexString');
+  });
+});
+
+describe('getPowers', () => {
+  const { getPowers } = require('../utils/helper');
+
+  it('should be a module', () => {
+    expect(getPowers).to.be.ok;
+  });
+
+  it('should return false if first argument is not a string', () => {
+    expect(getPowers([11011])).to.be.false;
+    expect(getPowers({ num: [11011] })).to.be.false;
+  });
+
+  it('should return an array with length equal to length of first argument', () => {
+    expect(getPowers('10011101', 2)).to.be.an('array').with.length(8);
+    expect(getPowers('1101', 4)).to.be.an('array').with.length(4);
+  });
+
+  it('should return an array of the numbers and their corresponding powers', () => {
+    let result = [
+      '1 : 64',
+      '1 : 32',
+      '0 : 16',
+      '1 : 8',
+      '0 : 4',
+      '0 : 2',
+      '1 : 1',
+    ];
+    expect(getPowers('1101001', 2)).to.deep.equal(result);
+
+    result = ['1 : 256', '1 : 64', '0 : 16', '0 : 4', '1 : 1'];
+    expect(getPowers('11001', 4)).to.deep.equal(result);
+  });
+});
+
+describe('multiplyNoAndPower', () => {
+  const { multiplyNoAndPower } = require('../utils/helper');
+
+  it('should be a module', () => {
+    expect(multiplyNoAndPower).to.be.ok;
+  });
+
+  it('should return false if argument is not an array of strings', () => {
+    expect(multiplyNoAndPower('11011')).to.be.false;
+    expect(multiplyNoAndPower({ num: [11011] })).to.be.false;
+
+    const powers = [
+      '1 : 64',
+      '1 : 32',
+      '0 : 16',
+      '1 : 8',
+      '0 : 4',
+      '0 : 2',
+      '1 : 1',
+    ];
+
+    expect(multiplyNoAndPower(powers)).to.be.ok;
+  });
+
+  it('should return a valid multiplication of rows', () => {
+    const powers = [
+      '1 : 64',
+      '1 : 32',
+      '0 : 16',
+      '1 : 8',
+      '0 : 4',
+      '0 : 2',
+      '1 : 1',
+    ];
+
+    const result = [
+      '1 x 64 = 64',
+      '1 x 32 = 32',
+      '0 x 16 = 0',
+      '1 x 8 = 8',
+      '0 x 4 = 0',
+      '0 x 2 = 0',
+      '1 x 1 = 1',
+    ];
+
+    expect(multiplyNoAndPower(powers)).to.deep.equal(result);
+  });
+});
+
+describe('addMultiples', () => {
+  const { addMultiples } = require('../utils/helper');
+
+  it('should be a module', () => {
+    expect(addMultiples).to.be.ok;
+  });
+
+  it('should return false if argument is not an array of strings', () => {
+    expect(addMultiples('11011')).to.be.false;
+    expect(addMultiples({ num: [11011] })).to.be.false;
+
+    const powers = [
+      '1 x 64 = 64',
+      '1 x 32 = 32',
+      '0 x 16 = 0',
+      '1 x 8 = 8',
+      '1 x 4 = 4',
+      '0 x 2 = 0',
+      '1 x 1 = 1',
+    ];
+
+    expect(addMultiples(powers)).to.be.ok;
+  });
+
+  it('should return the total of all the answers for each line of multiplication', () => {
+    const multiples = [
+      '1 x 64 = 64',
+      '1 x 32 = 32',
+      '0 x 16 = 0',
+      '1 x 8 = 8',
+      '1 x 4 = 4',
+      '0 x 2 = 0',
+      '1 x 1 = 1',
+    ];
+
+    expect(addMultiples(multiples)).to.deep.equal({
+      finalAnswer: 109,
+      addition: '64 + 32 + 0 + 8 + 4 + 0 + 1 = 109',
+    });
   });
 });

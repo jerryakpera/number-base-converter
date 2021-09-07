@@ -5,13 +5,13 @@ const _helper = require('../../../utils/helper');
 const decimalToHex = {
   conversionType: 'decimalToHex',
   notes: [
-    'The denary (base ten) numeral system has ten possible values (0,1,2,3,4,5,6,7,8, or 9) for each place-value.',
+    'The decimal (base ten) numeral system has ten possible values (0,1,2,3,4,5,6,7,8, or 9) for each place-value.',
     'Hexadecimal is a base sixteen numeral system. This means it has 16 symbols that can represent a single digit, adding A, B, C, D, E, and F on top of the usual ten numerals.',
   ],
   converting: {
     from: {
-      text: 'denary',
-      desc: 'Denary numbers (base-10) use 0 - 9',
+      text: 'decimal',
+      desc: 'Decimal numbers (base-10) use 0 - 9',
     },
     to: {
       text: 'hexadecimal',

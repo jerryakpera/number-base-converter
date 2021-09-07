@@ -1,4 +1,15 @@
-.header {
-  color: red;
-  background-color: white;
+#header {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+
+  #header-form {
+    display: flex;
+
+    div {
+      flex-grow: 1;
+      margin: 0 1em;
+      width: 100%;
+    }
+  }
 }

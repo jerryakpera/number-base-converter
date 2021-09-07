@@ -5,7 +5,7 @@ const _helper = require('../../../utils/helper');
 const decimalToBinary = {
   conversionType: 'decimalToBinary',
   notes: [
-    'The decimal (base ten) numeral system has ten possible values (0,1,2,3,4,5,6,7,8, or 9) for each place-value.',
+    'The decimal (base ten) numeral system has ten possible values (0, 1, 2, 3, 4, 5, 6, 7, 8, or 9) for each place-value.',
     'In contrast, the binary (base two) numeral system has two possible values represented as 0 or 1 for each place-value',
   ],
   converting: {
@@ -41,7 +41,7 @@ const decimalToBinary = {
       title: 'Step 3',
       name: 'Repeat step 2 till you reach 0',
       description:
-        'Keep dividing and writing out the quotient and the remainder till you get to 0',
+        'Keep dividing and writing out the quotient and the remainder till the interger gets to 0',
       rows: {},
     },
     {

@@ -1,0 +1,65 @@
+#steps {
+  margin: 0.8em;
+  font-family: $font1;
+
+  .step {
+    border-radius: 5px;
+    border: 1px solid $lightBlue;
+    margin-bottom: 0.8em;
+
+    .step-title {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: $lightBlue;
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+
+      h5 {
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    .step-body {
+      padding: 1em;
+
+      .tool {
+        color: red !important;
+      }
+
+      .notes {
+        color: $green;
+        font-weight: bold;
+      }
+
+      .rows {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+        .example {
+          color: $red;
+          font-weight: bold;
+        }
+
+        .row {
+          margin: 1em 0;
+          flex-grow: 1;
+          font-weight: bold;
+          color: $lightBlue;
+          font-size: 1em;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+
+      .summary {
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
