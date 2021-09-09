@@ -118,17 +118,28 @@ function addMultiples(arr) {
   };
 }
 
-const multiples = [
-  '1 x 64 = 64',
-  '1 x 32 = 32',
-  '0 x 16 = 0',
-  '1 x 8 = 8',
-  '1 x 4 = 4',
-  '0 x 2 = 0',
-  '1 x 1 = 1',
-];
+function groupNumbers(str, len) {
+  if (!Array.isArray(str)) return false;
 
-// console.log(addMultiples(multiples));
+  let returnArr = [];
+
+  str.reverse().forEach((char, i) => {
+    if (i > 0 && i % len === 0) {
+      returnArr.unshift('*');
+    }
+    returnArr.unshift(char);
+  });
+
+  return returnArr.join('').split('*');
+}
+
+function addZeros(arr, len) {
+  while (arr[0].length < len) {
+    arr[0] = '0' + arr[0];
+  }
+
+  return arr;
+}
 
 module.exports = {
   isValidStr,
@@ -138,4 +149,6 @@ module.exports = {
   getPowers,
   multiplyNoAndPower,
   addMultiples,
+  groupNumbers,
+  addZeros,
 };

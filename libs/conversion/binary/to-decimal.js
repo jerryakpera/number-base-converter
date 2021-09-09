@@ -94,6 +94,4 @@ function toDecimal(binary) {
   return conversion;
 }
 
-// console.log(toDecimal('1101101').steps);
-
 module.exports = toDecimal;

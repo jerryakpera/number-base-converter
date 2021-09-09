@@ -1,7 +1,11 @@
 const router = require('express').Router();
 
-const { binaryToDecimal } = require('../controllers/binary-controller');
+const {
+  binaryToDecimal,
+  binaryToOctal,
+} = require('../controllers/binary-controller');
 
 router.get('/to-decimal/:number', binaryToDecimal);
+router.get('/to-octal/:number', binaryToOctal);
 
 module.exports = router;

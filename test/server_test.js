@@ -115,9 +115,9 @@ describe('/binary', () => {
       done();
     });
 
-    // request(`${binaryURL}/to-octal/80`, (error, response, body) => {
-    //   expect(response.statusCode).to.not.equal(404);
-    // });
+    request(`${binaryURL}/to-octal/80`, (error, response, body) => {
+      expect(response.statusCode).to.not.equal(404);
+    });
 
     // request(`${binaryURL}/to-hex/44`, (error, response, body) => {
     //   expect(response.statusCode).to.not.equal(404);
@@ -131,10 +131,10 @@ describe('/binary', () => {
       done();
     });
 
-    // request(`${binaryURL}/to-octal/12-12`, (error, response, body) => {
-    //   expect(response.statusCode).to.equal(400);
-    //   expect(response.body).to.equal('Enter a valid decimal number');
-    // });
+    request(`${binaryURL}/to-octal/12-12`, (error, response, body) => {
+      expect(response.statusCode).to.equal(400);
+      expect(response.body).to.equal('Enter a valid binary number');
+    });
 
     // request(`${binaryURL}/to-hex/4sd`, (error, response, body) => {
     //   expect(response.statusCode).to.equal(400);
@@ -152,14 +152,14 @@ describe('/binary', () => {
     });
   });
 
-  // it('/octal/:number should return 200 and conversion object', (done) => {
-  //   request(`${binaryURL}/to-octal/88`, (error, response, body) => {
-  //     expect(response.statusCode).to.equal(200);
-  //     expect(response.body).to.deep.include('conversion');
+  it('/octal/:number should return 200 and conversion object', (done) => {
+    request(`${binaryURL}/to-octal/10010`, (error, response, body) => {
+      expect(response.statusCode).to.equal(200);
+      expect(response.body).to.deep.include('conversion');
 
-  //     done();
-  //   });
-  // });
+      done();
+    });
+  });
 
   // it('/hex/:number should return 200 and conversion object', (done) => {
   //   request(`${binaryURL}/to-hex/88`, (error, response, body) => {

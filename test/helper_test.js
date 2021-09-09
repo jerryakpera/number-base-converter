@@ -247,3 +247,41 @@ describe('addMultiples', () => {
     });
   });
 });
+
+describe('groupNumbers', () => {
+  const { groupNumbers } = require('../utils/helper');
+
+  it('should be a module', () => {
+    expect(groupNumbers).to.be.ok;
+  });
+
+  it('should return false if first argument is not an array', () => {
+    expect(groupNumbers({ str: 'solid' })).to.be.false;
+    expect(groupNumbers([1, 2, 3, 3, 4])).to.be.ok;
+  });
+
+  it('should return a grouping of the first argument returned in same format with length of second argument', () => {
+    expect(groupNumbers([1, 1, 0, 1, 1, 1, 1, 0], 3)).to.deep.equal([
+      '11',
+      '011',
+      '110',
+    ]);
+  });
+});
+
+describe('addZeros', () => {
+  const { addZeros } = require('../utils/helper');
+  it('should be a module', () => {
+    expect(addZeros).to.be.ok;
+  });
+
+  it('should append 0s if the first element of the arr is not correct length', () => {
+    expect(addZeros(['0', '110', '101'], 3)).to.deep.equal([
+      '000',
+      '110',
+      '101',
+    ]);
+
+    expect(addZeros(['11', '010'], 3)).to.deep.equal(['011', '010']);
+  });
+});

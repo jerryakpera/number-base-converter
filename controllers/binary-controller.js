@@ -19,4 +19,22 @@ module.exports = {
       return res.send(err);
     }
   },
+
+  async binaryToOctal(req, res, next) {
+    try {
+      let { number } = req.params;
+
+      // Validate binary
+      if (!validateBinary(number)) {
+        return res.status(400).send('Enter a valid binary number');
+      }
+
+      const conversion = binaryConverter.toOctal(number);
+      return res.send({ conversion });
+    } catch (err) {
+      console.log(err);
+
+      return res.send(err);
+    }
+  },
 };

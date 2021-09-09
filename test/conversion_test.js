@@ -247,4 +247,71 @@ describe('binary', () => {
       console.log('convertBinary toDecimal tests completed');
     });
   });
+
+  describe('toOctal', () => {
+    it('should be a module', () => {
+      expect(convertBinaryNumber.toOctal).to.be.ok;
+    });
+
+    it('should return false if argument is not a valid binary no as a string', () => {
+      expect(convertBinaryNumber.toOctal(223)).to.be.false;
+      expect(convertBinaryNumber.toOctal('cc223')).to.be.false;
+      expect(convertBinaryNumber.toOctal('22873')).to.be.false;
+      expect(convertBinaryNumber.toOctal('00100')).to.be.ok;
+    });
+
+    it('should return a conversion object with valid properties', () => {
+      const properties = [
+        'conversionType',
+        'notes',
+        'converting',
+        'steps',
+        'finalAnswer',
+      ];
+
+      expect(convertBinaryNumber.toOctal('0010')).to.have.all.keys(properties);
+    });
+
+    it('should return a valid conversion object with step rows', () => {
+      expect(convertBinaryNumber.toOctal('1101101')).to.deep.include({
+        finalAnswer: '155',
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[0]).to.deep.include({
+        rows: '1101101'.split(''),
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[1]).to.deep.include({
+        rows: ['1', '101', '101'],
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[2]).to.deep.include({
+        rows: ['001', '101', '101'],
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[3]).to.deep.include({
+        rows: [
+          [' ( 0 : 4 ) ', ' ( 0 : 2 ) ', ' ( 1 : 1 ) '],
+          [' ( 1 : 4 ) ', ' ( 0 : 2 ) ', ' ( 1 : 1 ) '],
+          [' ( 1 : 4 ) ', ' ( 0 : 2 ) ', ' ( 1 : 1 ) '],
+        ],
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[4]).to.deep.include({
+        rows: [
+          [' ( 0 x 4 = 0 ) ', ' ( 0 x 2 = 0 ) ', ' ( 1 x 1 = 1 ) '],
+          [' ( 1 x 4 = 4 ) ', ' ( 0 x 2 = 0 ) ', ' ( 1 x 1 = 1 ) '],
+          [' ( 1 x 4 = 4 ) ', ' ( 0 x 2 = 0 ) ', ' ( 1 x 1 = 1 ) '],
+        ],
+      });
+
+      expect(convertBinaryNumber.toOctal('1101101').steps[5]).to.deep.include({
+        rows: '1 5 5 = 155',
+      });
+    });
+
+    after(() => {
+      console.log('convertBinary toOctal tests completed');
+    });
+  });
 });
